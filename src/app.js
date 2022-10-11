@@ -7,6 +7,9 @@ const bodyParser = require('body-parser');
 
 const indicesRoutes = require('./routes/indices');
 const indicesFilterRoutes = require('./routes/indicesfilter');
+const areasFilterRoutes = require('./routes/areafilter');
+const indicesAreaRoutes = require('./routes/indicesarea');
+
 const authRoutes = require('./routes/auth');
 const db = require('./db');
 
@@ -42,6 +45,8 @@ app.use('/indices', indicesRoutes);
 // app.use('/.netlify/functions/indicesFilter', indicesFilterRoutes);
 app.use('/indicesFilter', indicesFilterRoutes);
 // app.use('/.netlify/functions/', authRoutes);
+app.use('/areasFilter', areasFilterRoutes);
+app.use('/indicesArea', indicesAreaRoutes);
 app.use('/', authRoutes);
 
 db.initDb((err, db) => {

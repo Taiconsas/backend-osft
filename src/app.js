@@ -13,6 +13,7 @@ const indicesAreaRoutes = require('./routes/indicesarea');
 const authRoutes = require('./routes/auth');
 const db = require('./db');
 
+const PORT = 3200;
 const app = express();
 
 app.use(bodyParser.json());
@@ -53,7 +54,7 @@ db.initDb((err, db) => {
   if (err) {
     console.log(err);
   } else {
-    app.listen(3200);
+    app.listen(PORT);
   }
 });
 

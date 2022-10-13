@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 // app.use('/.netlify/functions/indices', indicesRoutes);
 app.use('/indices', indicesRoutes);
 // app.use('/.netlify/functions/indicesFilter', indicesFilterRoutes);
-app.use('/indicesFilter', indicesFilterRoutes);
+// app.use('/indicesFilter', indicesFilterRoutes);
 // app.use('/.netlify/functions/', authRoutes);
 app.use('/areasFilter', areasFilterRoutes);
 app.use('/indicesArea', indicesAreaRoutes);

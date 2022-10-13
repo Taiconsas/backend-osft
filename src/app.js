@@ -48,7 +48,7 @@ app.use('/indices', indicesRoutes);
 // app.use('/.netlify/functions/', authRoutes);
 app.use('/areasFilter', areasFilterRoutes);
 app.use('/indicesArea', indicesAreaRoutes);
-app.use('/', authRoutes);
+//app.use('/', authRoutes);
 
 db.initDb((err, db) => {
   if (err) {

@@ -7,7 +7,6 @@ const router = Router();
 
 router.get('/', async (req, res, next) => {
   db.getDb()
-    .db()
     .collection("cuoc_area_cualificacion08")
     .find({}, { projection: {_id:1, sigla_area_cualificacion:1,nombre_area_cualificacion:1}})
     .toArray((err, results) => {

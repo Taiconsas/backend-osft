@@ -147,7 +147,6 @@ router.get('/:id', async (req, res, next) => {
   const indiceArr = [];
   // let cont = 0;
   const aggCursor = db.getDb()
-    .db()
     .collection("cuoc_indice01")
     .aggregate(pipeline);
 
@@ -200,7 +199,6 @@ router.patch('/:id', (req, res, next) => {
     image: req.body.image
   };
   db.getDb()
-    .db()
     .collection('cuoc_indice01')
     .updateOne(
       { _id: new ObjectId(req.params.id) }, 
@@ -218,7 +216,6 @@ router.patch('/:id', (req, res, next) => {
 // Requires logged in user
 router.delete('/:id', (req, res, next) => {
   db.getDb()
-    .db()
     .collection('cuoc_indice01')
     .deleteOne({ _id: new ObjectId(req.params.id)})
     .then(result => {

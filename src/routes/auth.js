@@ -14,7 +14,7 @@ router.post('/login', (req, res, next) => {
   const email = req.body.email;
   const pw = req.body.password;
   
-  db.getDb().db().collection('users').findOne({ email: email}).then(userDoc => {
+  db.getDb().collection('users').findOne({ email: email}).then(userDoc => {
    return bcrypt.compare(pw, userDoc.password);
   })
   .then(result => {
@@ -43,7 +43,6 @@ router.post('/signup', (req, res, next) => {
     .then(hashedPW => {
       // Store hashedPW in database
       db.getDb()
-      .db()
       .collection('users')
       .insertOne({
         email: email,

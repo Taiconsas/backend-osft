@@ -1,7 +1,7 @@
 const mongodb = require('mongodb');
-
 const MongoClient = mongodb.MongoClient;
-const mongoDbUrl = 'mongodb+srv://usrUploadData:taiconsas.@cluster0.vbvxner.mongodb.net/palmares-osft?retryWrites=true';
+
+const mongoDbUrl = process.env.MONGO_URI;
 
 let _db;
 
@@ -22,12 +22,9 @@ const initDb = callback => {
 
 const getDb = () => {
   if (!_db) {
-    throw Error('Database not initialzed');
+    throw Error('Database not initialized');
   }
   return _db;
 };
 
-module.exports = {
-  initDb,
-  getDb
-};
+module.exports = { initDb, getDb };

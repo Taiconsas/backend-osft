@@ -21,26 +21,27 @@ app.use('/images', express.static(path.join('backend/images')));
 
 
 
-const allowedOrigins = ["https://app-taicon-osft.netlify.app", "http://jorges-macbook-pro.local:3000", "http://localhost:3000"]
+const allowedOrigins = [
+  "https://app-taicon-osft.netlify.app", 
+  "http://jorges-macbook-pro.local:3000", 
+  "http://localhost:3000",
+  "https://site-osft.onrender.com" // 👉 agrega tu frontend en Render
+];
 
 app.use(cors({
-  origin: allowedOrigins
-}));
+  origin: function (origin, callback) {
+    // Permite requests sin 'origin' (por ejemplo, Postman o curl)
+    if (!origin) return callback(null, true);
 
-app.use((req, res, next) => {
-  // Set CORS headers so that the React SPA is able to communicate with this server
-  res.setHeader('Access-Control-Allow-Origin', "*");
-  res.setHeader(
-    'Access-Control-Allow-Methods',
-    'GET,POST,PUT,PATCH,DELETE,OPTIONS'
-  );
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  // res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = "CORS bloqueó el request desde: " + origin;
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  credentials: true
+}));
 
 // app.use('/.netlify/functions/indices', indicesRoutes);
 app.use('/indices', indicesRoutes);

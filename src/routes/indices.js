@@ -10,6 +10,7 @@ const router = Router();
 
 // Get single indice
 router.get('/:id', async (req, res, next) => {
+  console.log("ID recibido:", req.params.id);
   const pipeline = [
     { $match: { _id: new ObjectId(req.params.id) } },
     {

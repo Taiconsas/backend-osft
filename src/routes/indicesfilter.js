@@ -15,7 +15,6 @@ app.use(cors({
 
 router.get('/', async (req, res, next) => {
   db.getDb()
-    .db()
     .collection("cuoc_indice01")
     .find({ longitud_indice: "5" }, { projection: {_id:1, cod_indice:1, nombre_cuoc_indice:1}})
     .toArray((err, results) => {

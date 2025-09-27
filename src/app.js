@@ -26,7 +26,8 @@ const allowedOrigins = [
   "http://jorges-macbook-pro.local:3000", 
   "http://localhost:3000",
   "https://site-osft.onrender.com",
-  "https://osft-site.onrender.com"
+  "https://osft-site.onrender.com",
+   process.env.FRONTEND_URL,
 ];
 
 app.use(cors({

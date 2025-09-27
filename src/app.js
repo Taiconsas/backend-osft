@@ -25,7 +25,8 @@ const allowedOrigins = [
   "https://app-taicon-osft.netlify.app", 
   "http://jorges-macbook-pro.local:3000", 
   "http://localhost:3000",
-  "https://site-osft.onrender.com" // 👉 agrega tu frontend en Render
+  "https://site-osft.onrender.com",
+  "https://osft-site.onrender.com"
 ];
 
 app.use(cors({

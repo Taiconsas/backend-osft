@@ -11,7 +11,6 @@ const areasFilterRoutes = require('./routes/areafilter');
 const indicesAreaRoutes = require('./routes/indicesarea');
 const authRoutes = require('./routes/auth');
 const huggingfaceRoutes = require("./routes/huggingface");
-const chatRoutes = require("./routes/chat");
 const resetRoutes = require("./routes/resetPassword");
 const db = require('./db');
 
@@ -54,7 +53,6 @@ app.use('/indicesFilter', indicesFilterRoutes);
 // app.use('/.netlify/functions/', authRoutes);
 app.use('/areasFilter', areasFilterRoutes);
 app.use('/indicesArea', indicesAreaRoutes);
-app.use("/chat", chatRoutes);
 app.use("/reset-password", resetRoutes);
 
 app.use("/huggingface", huggingfaceRoutes);

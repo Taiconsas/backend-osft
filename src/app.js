@@ -59,7 +59,7 @@ app.use("/reset-password", resetRoutes);
 
 app.use("/huggingface", huggingfaceRoutes);
 
-app.use('/', authRoutes);
+app.use('/auth', authRoutes);
 
 db.initDb((err, db) => {
   if (err) {

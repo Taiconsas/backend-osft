@@ -1,6 +1,5 @@
 require('dotenv').config(); // carga variables de .env
 const path = require('path');
-
 const express = require('express');
 // const serverless = require('serverless-http');
 const cors = require('cors');
@@ -10,8 +9,10 @@ const indicesRoutes = require('./routes/indices');
 const indicesFilterRoutes = require('./routes/indicesfilter');
 const areasFilterRoutes = require('./routes/areafilter');
 const indicesAreaRoutes = require('./routes/indicesarea');
-
 const authRoutes = require('./routes/auth');
+require('openai').OpenAI;
+const huggingfaceRoutes = require("./routes/huggingface");
+const chatRoutes = require("./routes/chat");
 const db = require('./db');
 
 const PORT = process.env.PORT || 3200;
@@ -53,6 +54,10 @@ app.use('/indicesFilter', indicesFilterRoutes);
 // app.use('/.netlify/functions/', authRoutes);
 app.use('/areasFilter', areasFilterRoutes);
 app.use('/indicesArea', indicesAreaRoutes);
+app.use("/chat", chatRoutes);
+
+app.use("/huggingface", huggingfaceRoutes);
+
 app.use('/', authRoutes);
 
 db.initDb((err, db) => {

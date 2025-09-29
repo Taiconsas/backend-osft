@@ -17,6 +17,11 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.9.1",
     "netlify-lambda": "^2.0.15",
+    "node-fetch": "^2.7.0",
+    "openai": "^5.23.1",
     "serverless-http": "^3.0.2"
+  },
+  "devDependencies": {
+    "@gradio/client": "^1.19.0"
   }
 }

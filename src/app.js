@@ -10,9 +10,9 @@ const indicesFilterRoutes = require('./routes/indicesfilter');
 const areasFilterRoutes = require('./routes/areafilter');
 const indicesAreaRoutes = require('./routes/indicesarea');
 const authRoutes = require('./routes/auth');
-require('openai').OpenAI;
 const huggingfaceRoutes = require("./routes/huggingface");
 const chatRoutes = require("./routes/chat");
+const resetRoutes = require("./routes/resetPassword");
 const db = require('./db');
 
 const PORT = process.env.PORT || 3200;
@@ -55,6 +55,7 @@ app.use('/indicesFilter', indicesFilterRoutes);
 app.use('/areasFilter', areasFilterRoutes);
 app.use('/indicesArea', indicesAreaRoutes);
 app.use("/chat", chatRoutes);
+app.use("/reset-password", resetRoutes);
 
 app.use("/huggingface", huggingfaceRoutes);
 
